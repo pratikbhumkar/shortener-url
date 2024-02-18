@@ -1,0 +1,17 @@
+type URL {
+  longURL: String!
+  shortURL: String!
+}
+
+input NewURL {
+  longURL: String!
+}
+
+type Query {
+  URL(shortURL: String!): URL
+}
+
+type Mutation {
+  createURL(input: NewURL!): URL!
+  deleteURL(longURL: String!): URL
+}
