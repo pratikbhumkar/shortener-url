@@ -1,0 +1,73 @@
+.App {
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  height: 100vh; 
+  width: 100vw;
+}
+
+.Container {
+  color: #fff;
+  background-color: #06163a;
+  height: 80vh;
+  width: 80vw;
+  padding-top: 100px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center; 
+  flex-direction: column;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.form{
+  margin: 20px;
+}
+
+
+.myInput{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.submit-button {
+  background-color: #8a1c8a;
+  height: 40px;
+  width: 15rem;
+  color: white;
+  font-size: 18px;
+}
+
+input {
+  height: 20px;
+  width: 20vw;
+  /* margin: 5vh; */
+  padding: 0.625rem 0.625rem 0.625rem 2.1875rem;
+}
+
+button {
+  background-color: black;
+  height: 40px;
+  width: 15rem;
+  color: white;
+  font-size: 18px;
+}
+
+a {
+  color: white;
+  font-size: larger;
+}
+
+.result-section{
+  background-color: cadetblue;
+  width: 20rem;
+  text-align: center;
+  min-width: fit-content;
+  padding: 20px;
+}
