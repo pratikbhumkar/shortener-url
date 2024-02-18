@@ -4,21 +4,29 @@ import { MyInput } from './Components/MyInput/MyInput';
 import { useMutation } from '@apollo/client';
 import { getCreateURLMutation } from './Graphql/CreateURLMutation';
 import { Results } from './Components/Results/Results';
+import { validateURL } from './utils/validateURL';
+
 
 function App() {
   const [url, setURL] = useState<string>();
   const [shortURLs, setShortURLs] = useState<string[]>([]);
-
+  const [errorMessage, setErrorMessage] = useState<string>();
   const [mutateFunction, { data, loading, error }] = useMutation(getCreateURLMutation(url));
 
   const submitForm = (event?: FormEvent<HTMLFormElement>) => {
     event?.preventDefault();
-    mutateFunction()
+    if (validateURL(url)) {
+      mutateFunction()
+    }else{
+      setErrorMessage('Please check the URL and try again')
+    }
   }
 
   useEffect(() => {
     if (data?.createURL.shortURL) {
       setShortURLs([...shortURLs, data?.createURL.shortURL])
+    }else if(error?.message){
+      setErrorMessage(error.message)
     }
   }, [loading, error, data?.createURL])
 
@@ -33,6 +41,11 @@ function App() {
           </div>
         </form>
         <Results shortURLs={shortURLs}/>
+        {errorMessage && 
+            <div>
+              Error: {errorMessage}
+            </div>
+        }
       </div>
     </div>
   );
