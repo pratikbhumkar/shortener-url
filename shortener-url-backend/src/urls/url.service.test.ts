@@ -70,7 +70,7 @@ describe('URLService', () => {
 
     describe('delete', () => {
         it('should delete URL', async()=>{
-            const input: string = 'uniqueShortURL';
+            const input: string = 'uniqueLongURL';
             const expectedURL = { longURL: 'uniqueLongURL' };
             prismaServiceMock.uRL.delete = jest.fn().mockResolvedValue(expectedURL);
 
