@@ -1,6 +1,7 @@
-### Prisma GraphQL schema first sample
+# URL Shortener backend
 
-This sample project uses sqlite as the relational database. To use a different database, check the [Prisma docs](https://www.prisma.io/docs/getting-started).
+This project gets the `longURLs`, saves on the database, shortens it. \
+On receiving a request with the `short-url`, it redirects user to the `longURL`
 
 ### Installation
 
@@ -12,3 +13,8 @@ This sample project uses sqlite as the relational database. To use a different d
 ### Graphql Playground
 
 When the application is running, you can go to [http://localhost:3000/graphql](http://localhost:3000/graphql) to access the GraphQL Playground.  See [here](https://docs.nestjs.com/graphql/quick-start#playground) for more.
+
+### Endpoints
+
+- This app has a regular graphql endpoint to communicate with the client so that the client can send requests with `longURLs` to be shortened
+- This app has a regular endpoint `localhost:3000/url/<short-code>` that uses http redirect to redirect users to the original website or `longURL`.
