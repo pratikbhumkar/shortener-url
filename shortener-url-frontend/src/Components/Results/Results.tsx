@@ -1,8 +1,8 @@
 type props = {
-    shortURLs : string[]
+    shortURLs: string[]
 }
 
-export const Results = ({shortURLs}:props) => {
+export const Results = ({ shortURLs }: props) => {
     const renderListItem = (shortURLs: string[]) => {
         return shortURLs.map((item: string, index) => <li key={index}>
             <a href={`http://localhost:3000/url/${item}`} target='_blank'>{`localhost:3001/${item}`}</a>
@@ -10,7 +10,7 @@ export const Results = ({shortURLs}:props) => {
     }
 
     return <div className='result-section'>
-        <h2>Results</h2>
+        <h2 data-testid="results-section">Results</h2>
         <ul>
             {renderListItem(shortURLs)}
         </ul>
